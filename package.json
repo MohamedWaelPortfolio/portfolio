@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@aws-amplify/backend": "^1.16.1",
     "@emailjs/browser": "^4.4.1",
     "@types/aos": "^3.0.7",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
