@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tailwindcss ./src/app/globals.css --output ./src/app/output.css && next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
@@ -13,7 +13,6 @@
     "@aws-amplify/backend": "^1.16.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@emailjs/browser": "^4.4.1",
-    "@tailwindcss/postcss": "^4.1.8",
     "@types/aos": "^3.0.7",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.33.0",
