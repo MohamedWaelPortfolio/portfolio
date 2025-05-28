@@ -3,9 +3,14 @@ const nextConfig = {
   // Only use "export" for production builds
   output: process.env.NODE_ENV === "production" ? "export" : undefined,
   reactStrictMode: true,
+  swcMinify: true,
   images: {
-    unoptimized: true,
+    unoptimized: false,
     domains: ["source.unsplash.com"],
+    formats: ["image/avif", "image/webp"],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
   },
 };
 

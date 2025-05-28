@@ -141,25 +141,26 @@ export function ContactSection() {
   const sectionRef = useRef(null);
 
   const contactInfo = {
-    email: "Modywaelabdo@gmail.com",
+    email: "contact@mohamedwaelportfolio.site",
     phone: "+201062137061",
     social: {
       twitter: "https://x.com/MohamedTweetys",
     },
   };
 
+  // Optimize performance: memoize handlers and reduce animation durations
   const handleCopy = useCallback(
     async (type: "email" | "phone") => {
       const text = type === "email" ? contactInfo.email : contactInfo.phone;
       try {
         await navigator.clipboard.writeText(text);
         setCopiedField(type);
-        setTimeout(() => setCopiedField(null), 2000);
+        setTimeout(() => setCopiedField(null), 1500); // reduce timeout
       } catch (error) {
         console.error("Failed to copy text:", error);
       }
     },
-    [contactInfo.email, contactInfo.phone]
+    []
   );
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -191,11 +192,10 @@ export function ContactSection() {
       setSubmitStatus("success");
       formRef.current.reset();
     } catch (error) {
-      console.error("Failed to send email:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 5000);
+      setTimeout(() => setSubmitStatus("idle"), 3000); // reduce timeout
     }
   }, []);
 
@@ -210,7 +210,7 @@ export function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center"
         >
           <h2 className="mb-6 text-4xl font-bold md:text-5xl">

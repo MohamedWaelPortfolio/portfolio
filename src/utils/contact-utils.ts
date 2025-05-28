@@ -15,7 +15,7 @@ export const formatPhoneNumber = (phone: string): string => {
 };
 
 export const getContactInfo = () => ({
-  email: "Modywaelabdo@gmail.com",
+  email: "contact@mohamedwaelportfolio.site",
   phone: "+201062137061",
   socialLinks: {
     github: "https://github.com/yourusername",
