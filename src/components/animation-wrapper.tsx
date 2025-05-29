@@ -54,7 +54,7 @@ export function AnimationWrapper({
         delay,
         ease: "easeOut",
       }}
-      className={className}
+      className={`animate-content ${className}`}
     >
       {children}
     </motion.div>
@@ -82,7 +82,7 @@ export function StaggerWrapper({
           },
         },
       }}
-      className={className}
+      className={`optimized-animation ${className}`}
     >
       {children}
     </motion.div>
@@ -99,11 +99,11 @@ export function StaggerItem({
   return (
     <motion.div
       variants={animations[animation]}
+      className={`animate-content ${className}`}
       transition={{
         duration,
         ease: "easeOut",
       }}
-      className={className}
     >
       {children}
     </motion.div>

@@ -20,6 +20,11 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   
   React.useEffect(() => {
     setMounted(true);
+    // Apply the initial theme without animation
+    document.documentElement.style.setProperty('--transition-duration', '0s');
+    requestAnimationFrame(() => {
+      document.documentElement.style.setProperty('--transition-duration', '200ms');
+    });
   }, []);
   
   if (!mounted) {
@@ -32,7 +37,13 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
   return (
     <NextThemesProvider {...props}>
-      <div className="contents transition-colors duration-200">
+      <div 
+        className="contents" 
+        style={{ 
+          transition: 'background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out',
+          willChange: 'background-color, color'
+        }}
+      >
         {children}
       </div>
     </NextThemesProvider>

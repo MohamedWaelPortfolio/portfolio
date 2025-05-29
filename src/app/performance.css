@@ -13,10 +13,44 @@
   will-change: contents;
 }
 
+/* GPU Acceleration */
 .gpu-accelerate {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000;
+}
+
+/* CSS Containment Strategies */
+.contain-layout {
+  contain: layout;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-strict {
+  contain: strict;
+}
+
+.contain-content {
+  contain: content;
+}
+
+/* Content Visibility Optimization */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px; /* Estimated height */
+}
+
+.content-visibility-hidden {
+  content-visibility: hidden;
+}
+
+/* Layout Containment */
+.layout-containment {
+  contain: layout inline-size;
+  content-visibility: auto;
 }
 
 /* Reduced motion support */
@@ -38,10 +72,33 @@
 /* Optimized scroll behavior */
 .optimized-scroll {
   scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Compositing Optimization */
+.composite-layer {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Paint Optimization */
+.paint-optimization {
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .optimized-scroll {
     scroll-behavior: auto;
   }
+}
+
+/* Size Containment for Dynamic Content */
+.size-container {
+  contain: size layout;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
 }
