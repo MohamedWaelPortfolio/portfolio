@@ -12,18 +12,29 @@ interface ThemeProviderProps {
   enableSystem?: boolean;
   disableTransitionOnChange?: boolean;
   themes?: string[];
+  storageKey?: string;
 }
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = React.useState(false);
+  
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  if (!mounted) {
+    return (
+      <div style={{ visibility: 'hidden' }} aria-hidden="true" suppressHydrationWarning>
+        {children}
+      </div>
+    );
+  }
+
   return (
-    <NextThemesProvider
-      attribute="data-theme"
-      defaultTheme="system"
-      enableSystem={true}
-      themes={["light", "dark", "sunset", "midnight"]}
-      {...props}
-    >
-      {children}
+    <NextThemesProvider {...props}>
+      <div className="contents transition-colors duration-200">
+        {children}
+      </div>
     </NextThemesProvider>
   );
 }

@@ -1,0 +1,47 @@
+@tailwind utilities;
+
+/* Performance optimization classes */
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-contents {
+  will-change: contents;
+}
+
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .reduce-motion {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .motion-safe\:animate-none {
+    animation: none !important;
+  }
+  
+  .motion-safe\:transition-none {
+    transition: none !important;
+  }
+}
+
+/* Optimized scroll behavior */
+.optimized-scroll {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .optimized-scroll {
+    scroll-behavior: auto;
+  }
+}

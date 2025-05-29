@@ -1,12 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Only use "export" for production builds
-  output: process.env.NODE_ENV === "production" ? "export" : undefined,
+  // Always use "export" for Netlify deployment
+  output: "export",
   reactStrictMode: true,
   images: {
-    unoptimized: false,
-    domains: ["source.unsplash.com"],
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",

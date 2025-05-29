@@ -17,33 +17,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem={true}
           disableTransitionOnChange={true}
+          storageKey="theme"
         >
           {children}
         </ThemeProvider>
-        {/* Zoho Live Chat Inline Script */}
-        <Script id="zoho-inline" strategy="afterInteractive">
-          {`
-            window.$zoho = window.$zoho || {};
-            window.$zoho.salesiq = window.$zoho.salesiq || {
-              ready: function() {
-                // Customization placeholder: Add your customization code here
-              }
-            };
-          `}
-        </Script>
-        {/* Zoho Live Chat External Script */}
-        <Script
-          id="zsiqscript"
-          src="https://salesiq.zohopublic.com/widget?wc=siq01c879ad1e38d8bfba257d2548a2f3b091d7588dd4755948a356091447984eaf"
-          strategy="afterInteractive"
-          defer
-        />
+        {/* Zoho Live Chat Scripts */}
+        {typeof window !== 'undefined' && (
+          <>
+            <Script id="zoho-inline" strategy="lazyOnload">
+              {`
+                window.$zoho = window.$zoho || {};
+                window.$zoho.salesiq = window.$zoho.salesiq || {
+                  ready: function() {
+                    // Customization placeholder: Add your customization code here
+                  }
+                };
+              `}
+            </Script>
+            <Script
+              id="zsiqscript"
+              src="https://salesiq.zohopublic.com/widget?wc=siq01c879ad1e38d8bfba257d2548a2f3b091d7588dd4755948a356091447984eaf"
+              strategy="lazyOnload"
+            />
+          </>
+        )}
       </body>
     </html>
   );
