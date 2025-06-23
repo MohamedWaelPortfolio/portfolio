@@ -1,0 +1,26 @@
+/* Performance-focused CSS utility classes */
+
+.animate-content {
+  content-visibility: auto;
+  contain: layout style paint;
+  will-change: transform, opacity;
+}
+
+.section-container {
+  content-visibility: auto;
+  contain: layout size;
+  contain-intrinsic-size: 0 500px;
+}
+
+.optimized-animation {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Theme transition optimizations */
+.theme-transition {
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+  will-change: background-color, color;
+}

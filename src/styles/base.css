@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -47,43 +47,4 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
-}
-
-.animate-content {
-  content-visibility: auto;
-  contain: layout style paint;
-  will-change: transform, opacity;
-}
-
-.section-container {
-  content-visibility: auto;
-  contain: layout size;
-  contain-intrinsic-size: 0 500px;
-}
-
-.optimized-animation {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-font-smoothing: antialiased;
-}
-
-.theme-transition {
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
-  will-change: background-color, color;
-}
-
-@layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
 }
