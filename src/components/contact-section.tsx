@@ -203,33 +203,33 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative bg-[url('/images/sections/contact/waves-bg.svg')] bg-cover bg-no-repeat py-24"
+      className="relative py-16 bg-black/10" // Removed heavy bg image and reduced padding
       aria-label="Contact section"
     >
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mb-16 text-center"
+          transition={{ duration: 0.2 }} // Reduced duration
+          className="mb-10 text-center"
         >
-          <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-            <span className="animate-gradient bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 bg-clip-text text-transparent">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+            <span className="bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
-          <p className="text-lg text-white/60">
+          <p className="text-base text-white/60">
             Have a project in mind? Let's discuss how we can work together.
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            transition={{ duration: 0.3, delay: 0.1 }} // Reduced duration
+            className="space-y-6"
           >
             <ContactInfo
               email={contactInfo.email}
@@ -242,9 +242,9 @@ export function ContactSection() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }} // Reduced duration
           >
             <form
               ref={formRef}
